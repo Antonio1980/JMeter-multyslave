@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+  master:
+    image: 5eda49cc65d4
+    container_name: master
+    tty: true
+    hostname: master
+    networks:
+      - vins
+  slave1:
+    image: 6b2f22724567
+    tty: true
+    networks:
+      - vins
+  slave2:
+      image: 6b2f22724567
+      tty: true
+      networks:
+        - vins
+  slave3:
+      image: 6b2f22724567
+      tty: true
+      networks:
+        - vins
+
+networks:
+  vins:
+    driver: bridge

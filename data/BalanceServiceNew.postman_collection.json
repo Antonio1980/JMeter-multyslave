@@ -1,0 +1,1342 @@
+{
+	"info": {
+		"_postman_id": "1a701f1c-c057-43e8-b824-f0460ab4667e",
+		"name": "BalanceServiceNew",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e651777-6706-471d-8532-06f90a061e16",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 2;",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0df00f0-a39f-4a51-93b3-7492462e1dfb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{id}}\",\n    \"jsonrpc\":\"{{version}}\",\n    \"method\":\"balance.get\",\n    \"params\":\n    {\t\n        \"customerId\": {{customer_id}},\n      \t\"currencyId\": {{currency_id}}\n    }\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{id}}\",\n    \"jsonrpc\":\"{{version}}\",\n    \"method\":\"balance.get\",\n    \"params\":\n    {\t\n        \"customerId\": {{customer_id}},\n      \t\"currencyId\": {{currency_id}}\n    }\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "110",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:25:49 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "GetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e2a656e-7c7b-4dbe-99aa-c023798265d9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9f9035b5-a0ce-493c-a606-e8caa01b6524",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.getAll\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}}\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetAll-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n   \"jsonrpc\": \"{{version}}\",\r\n   \"method\": \"balance.getAll\",\r\n   \"params\":\r\n      {\t\r\n      \t \"customerId\": {{customer_id}}\r\n      }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "634",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:07:24 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":[{\"currencyId\":1,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}},{\"currencyId\":2,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}},{\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}},{\"currencyId\":4,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}},{\"currencyId\":5,\"balance\":{\"total\":1.5E+5,\"frozen\":0,\"available\":1.5E+5}},{\"currencyId\":6,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}},{\"currencyId\":7,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}},{\"currencyId\":8,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}},{\"currencyId\":9,\"balance\":{\"total\":0,\"frozen\":0,\"available\":0}}]}\n"
+				}
+			]
+		},
+		{
+			"name": "GetSubtractTransactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e651777-6706-471d-8532-06f90a061e16",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 2;",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0df00f0-a39f-4a51-93b3-7492462e1dfb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{id}}\",\n    \"jsonrpc\":\"{{version}}\",\n    \"method\":\"balance.getSubtractTransactions\",\n    \"params\":\n    {\t\n        \"customerId\": {{customer_id}},\n      \t\"currencyId\": {{currency_id}}\n    }\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{id}}\",\n    \"jsonrpc\":\"{{version}}\",\n    \"method\":\"balance.get\",\n    \"params\":\n    {\t\n        \"customerId\": {{customer_id}},\n      \t\"currencyId\": {{currency_id}}\n    }\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "110",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:25:49 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "Add",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a45dc01f-d21d-4f87-863b-da3e95468cd0",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 2,",
+							"        deposit_amount = \"10000\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"deposit_amount\", deposit_amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d53216b2-07e0-4848-9b49-da561ca68d7e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.add\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{deposit_amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t     \"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.add\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t     \"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "167",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:32:03 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"transactionGuid\":\"16978fcd-b10e-484f-962e-b52ae09cdd2d\",\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "Subtract",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1af60b38-7a0c-44f1-98e1-0a109d95dfff",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 1,",
+							"        amount = \"40000\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bc8fdf8-9834-4477-ac8e-800b9316f3a7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtract\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t     \"operationReference\": \"clean_up_customer\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Subtract-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtract\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t     \"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "167",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:31:08 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"transactionGuid\":\"5e047ad7-8d4a-48eb-8df1-b17a70f64ea2\",\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "SubtractTransactionInitialize",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "14ed6bc2-3ddb-4e6a-b024-906ece680547",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 1,",
+							"        amount = \"10\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5f87519-eb14-4217-89c6-85ae9f0f3876",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionInitialize\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SubtractTransactionInitialize-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionInitialize\",\r\n    \"params\":\r\n    {\t\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "167",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:27:24 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"transactionGuid\":\"c2d5c119-2630-4a30-bbe3-db024c6c3d40\",\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "SubtractTransactionPartialRollback",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "469b20ff-f181-4eec-8e49-cce574bf351a",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 1,",
+							"        amount = \"10\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c254aab-f75d-4faf-8b89-ed848194282f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionPartialRollback\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"clean_up_customer\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SubtractTransactionPartialRollback-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionPartialRollback\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "110",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:30:17 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "SubtractTransactionPartialCommit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76c2e664-30e0-45a7-a01b-5ebd8b1e2fa6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "352214ae-b263-440b-b411-2b04befd821a",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 3,",
+							"        amount = \"10\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionPartialCommit\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SubtractTransactionPartialCommit-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionPartialCommit\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "110",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:28:34 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "SubtractTransactionCommit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76c2e664-30e0-45a7-a01b-5ebd8b1e2fa6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "352214ae-b263-440b-b411-2b04befd821a",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 3,",
+							"        amount = \"10\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionCommit\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubtractTransactionRollback",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "469b20ff-f181-4eec-8e49-cce574bf351a",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 1,",
+							"        amount = \"10\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c254aab-f75d-4faf-8b89-ed848194282f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionRollback\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"clean_up_customer\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SubtractTransactionPartialRollback-Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionPartialRollback\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"amount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"create_order_123\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{ServiceUrl}}:{{port}}",
+							"host": [
+								"{{protocol}}{{ServiceUrl}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "110",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Sep 2018 06:30:17 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"body": "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"currencyId\":3,\"balance\":{\"total\":29.1,\"frozen\":-15.5,\"available\":44.6}}}\n"
+				}
+			]
+		},
+		{
+			"name": "subtractTransactionCommitAmountAndRollbackRemainder",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "469b20ff-f181-4eec-8e49-cce574bf351a",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 1,",
+							"        amount = \"10\";",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"    postman.setEnvironmentVariable(\"amount\", amount);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c254aab-f75d-4faf-8b89-ed848194282f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionCommitAmountAndRollbackRemainder\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"commitAmount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"clean_up_customer\"\r\n      \t }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "subtractTransactionCommitAmountAndRollbackRemainder",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"{{id}}\",\r\n    \"jsonrpc\": \"{{version}}\",\r\n    \"method\": \"balance.subtractTransactionCommitAmountAndRollbackRemainder\",\r\n    \"params\":\r\n    {\t\r\n      \t \"transactionGuid\": \"587756e2-47c9-4ff7-9c6d-77410ba636a0\",\r\n      \t \"customerId\": {{customer_id}},\r\n      \t \"currencyId\": {{currency_id}},\r\n      \t \"commitAmount\": {{amount}},\r\n      \t \"metadata\": \r\n      \t {\r\n      \t \t\"operationReference\": \"clean_up_customer\"\r\n      \t }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://172.20.40.211:30025/",
+							"protocol": "http",
+							"host": [
+								"172",
+								"20",
+								"40",
+								"211"
+							],
+							"port": "30025",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 15 May 2019 11:32:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": \"21\",\n    \"error\": {\n        \"code\": 102,\n        \"message\": \"Operation leads to negative frozen balance\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "EnsureInRedis",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e651777-6706-471d-8532-06f90a061e16",
+						"exec": [
+							"pm.test(\"SetEnvironmentVariables\", function (err, res)",
+							"{",
+							"    var currency_id = 3;",
+							"    postman.setEnvironmentVariable(\"currency_id\", currency_id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0df00f0-a39f-4a51-93b3-7492462e1dfb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"{{id}}\",\n    \"jsonrpc\": \"{{version}}\",\n    \"method\": \"balance.ensureInRedis\",\n    \"params\": \n        {\n            \"customerId\": {{customer_id}}\n        }\n    \n}"
+				},
+				"url": {
+					"raw": "http://172.20.40.211:30025/",
+					"protocol": "http",
+					"host": [
+						"172",
+						"20",
+						"40",
+						"211"
+					],
+					"port": "30025",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "EnsureInRedis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"{{id}}\",\n    \"jsonrpc\": \"{{version}}\",\n    \"method\": \"balance.ensureInRedis\",\n    \"params\": \n        {\n            \"customerId\": {{customer_id}}\n        }\n    \n}"
+						},
+						"url": {
+							"raw": "http://172.20.40.211:30025/",
+							"protocol": "http",
+							"host": [
+								"172",
+								"20",
+								"40",
+								"211"
+							],
+							"port": "30025",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 15 May 2019 11:58:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json-rpc"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.z-SNAPSHOT)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": \"21\",\n    \"result\": true\n}"
+				}
+			]
+		}
+	]
+}

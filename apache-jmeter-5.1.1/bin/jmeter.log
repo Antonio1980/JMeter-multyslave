@@ -1,0 +1,26 @@
+2019-07-06 23:07:11,123 INFO o.a.j.u.JMeterUtils: Setting Locale to en_IL
+2019-07-06 23:07:11,169 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2019-07-06 23:07:11,171 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2019-07-06 23:07:11,172 WARN o.a.j.JMeter: Removing System property: user.properties
+2019-07-06 23:07:11,172 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.ssl.disable=true
+2019-07-06 23:07:11,181 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-07-06 23:07:11,182 INFO o.a.j.JMeter: Version 5.1.1 r1855137
+2019-07-06 23:07:11,182 INFO o.a.j.JMeter: java.version=1.8.0_161
+2019-07-06 23:07:11,182 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2019-07-06 23:07:11,182 INFO o.a.j.JMeter: os.name=Mac OS X
+2019-07-06 23:07:11,182 INFO o.a.j.JMeter: os.arch=x86_64
+2019-07-06 23:07:11,182 INFO o.a.j.JMeter: os.version=10.13.6
+2019-07-06 23:07:11,183 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-07-06 23:07:11,183 INFO o.a.j.JMeter: java.awt.headless=null
+2019-07-06 23:07:11,183 INFO o.a.j.JMeter: Max memory     =1908932608
+2019-07-06 23:07:11,183 INFO o.a.j.JMeter: Available Processors =4
+2019-07-06 23:07:11,190 INFO o.a.j.JMeter: Default Locale=English (Israel)
+2019-07-06 23:07:11,191 INFO o.a.j.JMeter: JMeter  Locale=English (Israel)
+2019-07-06 23:07:11,191 INFO o.a.j.JMeter: JMeterHome=/Volumes/DATA/JMeter/apache-jmeter-5.1.1
+2019-07-06 23:07:11,191 INFO o.a.j.JMeter: user.dir  =/Volumes/DATA/JMeter/apache-jmeter-5.1.1/bin
+2019-07-06 23:07:11,192 INFO o.a.j.JMeter: PWD       =/Volumes/DATA/JMeter/apache-jmeter-5.1.1/bin
+2019-07-06 23:07:11,195 INFO o.a.j.JMeter: IP: 192.168.0.101 Name: AntonMacBookPro.local FullName: 192.168.0.101
+2019-07-06 23:07:15,471 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2019-07-06 23:07:15,502 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2019-07-06 23:07:15,503 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2019-07-06 23:07:15,673 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
