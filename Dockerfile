@@ -24,31 +24,32 @@ ENV PATH ${JMETER_HOME}/bin:${PATH}
 USER root
 
 # Install few utilities
-RUN apt-get clean && \
-    apt-get -y update && \
-    apt-get -y -q upgrade && \
-    apt-get -qy install --yes \
-                default-jdk \
-                default-jre \
-                software-properties-common htop \
-                curl \
-                wget \
-                telnet \
-                vim \
-                nmon \
-                apt-transport-https \
-                apt-utils \
-                iputils-ping \
-                unzip \
-                tar \
-                openssh-client \
-                tightvncserver \
+RUN apt-get clean &&                       \
+    apt-get -y update &&                   \
+    apt-get -y -q upgrade &&               \
+    apt-get -qy install --yes              \
+                default-jdk                \
+                default-jre                \
                 software-properties-common \
-                openjdk-11-jdk \
-                openjdk-11-jre \
-                libxml2-dev \
-                libxslt-dev \
-                zlib1g-dev \
+                htop                       \
+                curl                       \
+                wget                       \
+                telnet                     \
+                vim                        \
+                nmon                       \
+                apt-transport-https        \
+                apt-utils                  \
+                iputils-ping               \
+                unzip                      \
+                tar                        \
+                openssh-client             \
+                tightvncserver             \
+                software-properties-common \
+                openjdk-11-jdk             \
+                openjdk-11-jre             \
+                libxml2-dev                \
+                libxslt-dev                \
+                zlib1g-dev                 \
                 net-tools
 
 RUN update-ca-certificates --fresh
