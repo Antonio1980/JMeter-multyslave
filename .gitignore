@@ -220,7 +220,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.gitignore
 .idea/
 .idea/JMeter-multyslave.iml
 .idea/misc.xml
